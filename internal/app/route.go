@@ -17,6 +17,7 @@ func Route(r *mux.Router, context context.Context, root Root) error {
 	if err != nil {
 		return err
 	}
+	r.HandleFunc("/health", app.HealthHandler.Check).Methods(GET)
 
 	r.HandleFunc("/authentication/authenticate", app.AuthenticationHandler.Authenticate).Methods(POST)
 	r.HandleFunc("/authentication/signout/{username}", app.SignOutHandler.SignOut).Methods(GET)
