@@ -3,10 +3,11 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/common-go/config"
-	"github.com/gorilla/mux"
 	"net/http"
 	"strconv"
+
+	"github.com/common-go/config"
+	"github.com/gorilla/mux"
 
 	"go-service/internal/app"
 )

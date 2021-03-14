@@ -12,9 +12,9 @@ import (
 )
 
 type Root struct {
-	Server   ServerConfig       `mapstructure:"server"`
-	DB       sql.DatabaseConfig `mapstructure:"db"`
-	Redis    redisclient.Config `mapstructure:"redis"`
+	Server ServerConfig       `mapstructure:"server"`
+	DB     sql.DatabaseConfig `mapstructure:"db"`
+	Redis  redisclient.Config `mapstructure:"redis"`
 
 	MaxPasswordFailed     int                                  `mapstructure:"max_password_failed"`
 	LockedMinutes         int                                  `mapstructure:"locked_minutes"`
@@ -22,7 +22,8 @@ type Root struct {
 	PasswordEncryptionKey string                               `mapstructure:"password_encryption_key"`
 	Token                 auth.TokenConfig                     `mapstructure:"token"`
 	Payload               auth.PayloadConfig                   `mapstructure:"payload"`
-	Status                auth.StatusConfig                    `mapstructure:"status"`
+	Status                *auth.StatusConfig                   `mapstructure:"status"`
+	UserStatus            auth.UserStatusConfig                `mapstructure:"user_status"`
 	Auth                  AuthConfig                           `mapstructure:"auth"`
 	AuthSqlConfig         auth.SqlConfig                       `mapstructure:"auth_sql"`
 	Password              PasswordConfig                       `mapstructure:"password"`
